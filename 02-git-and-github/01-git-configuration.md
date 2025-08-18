@@ -17,10 +17,10 @@ Before we configure it, here's a reminder of how Git works. Your configurations 
 ```mermaid
 graph TD
     subgraph "Your Computer"
-        A[Working Directory] -- git add --> B[Staging Area];
-        B -- git commit --> C[Local Repository];
+        A["Working Directory"] -- git add --> B["Staging Area"];
+        B -- git commit --> C["Local Repository"];
     end
-    C -- git push --> D[Remote Repository (GitHub)];
+    C -- git push --> D["Remote Repository (GitHub)"];
     D -- git pull --> A;
 ```
 
