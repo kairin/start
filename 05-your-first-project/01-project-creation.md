@@ -50,6 +50,8 @@ EOL
 # Install some development dependencies
 npm install -D nodemon eslint prettier
 
+> **What does `npm install` do?** This command downloads the code for the packages listed (`nodemon`, `eslint`, `prettier`) and stores them in a folder called `node_modules`. Learn more about this in the [Understanding npm and node_modules](./04-understanding-npm-and-node_modules.md) guide.
+
 # Create a simple server file
 cat > index.js << 'EOL'
 const http = require('http');

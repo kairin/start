@@ -90,6 +90,7 @@ graph TD
 - [Project Creation](05-your-first-project/01-project-creation.md) - Starting your project
 - [Verification Checklist](05-your-first-project/02-verification-checklist.md) - Confirm everything works
 - [Next Steps](05-your-first-project/03-next-steps.md) - Continue learning
+- [Understanding npm](05-your-first-project/04-understanding-npm-and-node_modules.md) - Learn about dependencies
 
 ## ✅ Documentation Status
 
