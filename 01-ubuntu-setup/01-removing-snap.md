@@ -15,10 +15,10 @@ Our objective is to completely remove Snap and its packages, and prevent it from
 ```mermaid
 graph TD
     subgraph "Goal: A Snap-Free System"
-        A[List all installed Snaps] --> B[Remove each Snap package one by one];
-        B --> C[Uninstall the Snap system (snapd)];
-        C --> D[Clean up leftover files and folders];
-        D --> E[Block Snap from being reinstalled in the future];
+        A["List all installed Snaps"] --> B["Remove each Snap package one by one"];
+        B --> C["Uninstall the Snap system (snapd)"];
+        C --> D["Clean up leftover files and folders"];
+        D --> E["Block Snap from being reinstalled in the future"];
     end
 ```
 
