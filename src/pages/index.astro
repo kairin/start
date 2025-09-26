@@ -1,16 +1,42 @@
 ---
-// Start Project Quality Controller - Main Page
+// Start Project Quality Controller - Enhanced Main Page with shadcn/ui
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import QuickStart from '../components/QuickStart.astro';
 
 const title = "Start - Project Quality Controller";
 const description = "A unified system for managing project quality, standards, and development environment consistency across all your projects.";
 ---
 
 <Layout title={title} description={description}>
-  <Hero />
-  <Features />
-  <QuickStart />
+  <div class="min-h-screen">
+    <div id="hero"></div>
+    <div id="features"></div>
+    <div id="quick-start"></div>
+  </div>
 </Layout>
+
+<script>
+  import { createRoot } from 'react-dom/client';
+  import React from 'react';
+  import EnhancedHero from '../components/EnhancedHero';
+  import EnhancedFeatures from '../components/EnhancedFeatures';
+  import EnhancedQuickStart from '../components/EnhancedQuickStart';
+
+  // Mount React components
+  const heroContainer = document.getElementById('hero');
+  if (heroContainer) {
+    const heroRoot = createRoot(heroContainer);
+    heroRoot.render(React.createElement(EnhancedHero));
+  }
+
+  const featuresContainer = document.getElementById('features');
+  if (featuresContainer) {
+    const featuresRoot = createRoot(featuresContainer);
+    featuresRoot.render(React.createElement(EnhancedFeatures));
+  }
+
+  const quickStartContainer = document.getElementById('quick-start');
+  if (quickStartContainer) {
+    const quickStartRoot = createRoot(quickStartContainer);
+    quickStartRoot.render(React.createElement(EnhancedQuickStart));
+  }
+</script>
