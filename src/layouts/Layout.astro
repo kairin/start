@@ -1,5 +1,5 @@
 ---
-// Layout component for consistent page structure
+// Enhanced Layout component with shadcn/ui styling
 export interface Props {
   title: string;
   description?: string;
@@ -31,20 +31,21 @@ const defaultDescription = "Project Quality Controller - Managing development st
     <meta property="twitter:description" content={description || defaultDescription} />
   </head>
   
-  <body class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
-    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-sm border-b border-slate-700">
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
-            <a href="/" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+            <a href="/" class="text-xl font-bold text-foreground hover:text-primary transition-colors duration-200">
               🚀 Start
             </a>
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-              <a href="https://github.com/kairin/start" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank">GitHub</a>
-              <a href="https://github.com/kairin/start/blob/main/CHANGELOG.md" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" target="_blank">Changelog</a>
+              <a href="/" class="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-accent">Home</a>
+              <a href="https://github.com/kairin/start" class="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-accent" target="_blank">GitHub</a>
+              <a href="https://github.com/kairin/start/blob/main/CHANGELOG.md" class="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-accent" target="_blank">Changelog</a>
             </div>
           </div>
         </div>
@@ -55,13 +56,14 @@ const defaultDescription = "Project Quality Controller - Managing development st
       <slot />
     </main>
 
-    <footer class="bg-slate-900 border-t border-slate-700 py-12">
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border py-12 mt-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <p class="text-gray-400">
+          <p class="text-muted-foreground">
             Start - Project Quality Controller v2.0.0
           </p>
-          <p class="text-gray-500 text-sm mt-2">
+          <p class="text-muted-foreground/60 text-sm mt-2">
             Zero-cost deployment • Local CI/CD • Professional quality standards
           </p>
         </div>
@@ -71,7 +73,52 @@ const defaultDescription = "Project Quality Controller - Managing development st
 </html>
 
 <style is:global>
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 222.2 84% 4.9%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 216 34% 17%;
+    --radius: 0.5rem;
+  }
+  
   html {
     font-family: system-ui, sans-serif;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
   }
 </style>
