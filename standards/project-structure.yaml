@@ -96,7 +96,10 @@ recommended_files:
 # Quality standards
 quality_requirements:
   git:
-    branch_naming: "YYYYMMDD-HHMMSS-type-description"
+    branch_naming: "YYYYMMDD-HHMMSS-type-description (MANDATORY format)"
+    branch_archiving: "ALL branches preserved permanently - NO deletion allowed"
+    branch_types: ["feat-", "fix-", "docs-", "refactor-", "test-", "chore-"]
+    pull_request_workflow: "Create PR, review, squash/merge to main, preserve branch"
     commit_messages: "Descriptive and follows conventional commits"
     
   documentation:
@@ -109,6 +112,7 @@ quality_requirements:
     agents_md_sections:
       - "Project overview"
       - "Key files and structure"
+      - "Git branch strategy & workflow"
       - "Development workflow" 
       - "Build and deployment"
       - "Common tasks"
@@ -165,5 +169,8 @@ validation:
     
   git_compliance:
     - "Repository has proper .gitignore"
-    - "Branch naming follows conventions"
+    - "Branch naming follows YYYYMMDD-HHMMSS-type-description format"
+    - "All branches are preserved permanently (no deletion)"
+    - "Pull requests created for all changes to main"
+    - "Proper merge strategy (squash or merge commit)"
     - "Commit history is clean and descriptive"
