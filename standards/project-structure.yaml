@@ -1,0 +1,169 @@
+# Project Structure Standards for Phase 001
+# Defines required files and directories for project quality compliance
+
+required_files:
+  # Core documentation
+  - path: "README.md"
+    description: "Project documentation and setup instructions"
+    required: true
+    
+  - path: "AGENTS.md"  
+    description: "Agent instructions for AI assistants"
+    required: true
+    template: "agents-md.template"
+    
+  # Git configuration
+  - path: ".git/"
+    description: "Git repository"
+    required: true
+    
+  - path: ".gitignore"
+    description: "Git ignore patterns"
+    required: true
+
+# Project type specific requirements
+project_types:
+  python:
+    required_files:
+      - path: "pyproject.toml"
+        description: "Python project configuration (REQUIRED - no requirements.txt)"
+      - path: "src/"
+        description: "Source code directory" 
+        type: "directory"
+      - path: ".venv/"
+        description: "UV-managed virtual environment"
+        type: "directory"
+        in_gitignore: true
+    optional_files:
+      - path: "uv.lock"
+        description: "UV lockfile for dependency management"
+    forbidden_files:
+      - path: "requirements.txt"
+        reason: "FORBIDDEN - Use pyproject.toml with UV instead"
+      - path: "setup.py"
+        reason: "FORBIDDEN - Legacy packaging, use pyproject.toml"
+      - path: "setup.cfg" 
+        reason: "FORBIDDEN - Legacy configuration, use pyproject.toml"
+      - path: "Pipfile"
+        reason: "FORBIDDEN - Use UV with pyproject.toml instead"
+        
+  nodejs:
+    required_files:
+      - path: "package.json"
+        description: "Node.js project configuration"
+      - path: "src/" 
+        description: "Source code directory"
+        type: "directory"
+    optional_files:
+      - path: "package-lock.json"
+        description: "NPM lockfile"
+      - path: "tsconfig.json"
+        description: "TypeScript configuration"
+        
+  astro:
+    required_files:
+      - path: "package.json"
+        description: "Node.js project configuration"
+      - path: "astro.config.mjs"
+        description: "Astro configuration"
+      - path: "src/"
+        description: "Source code directory"
+        type: "directory"
+    optional_files:
+      - path: "tailwind.config.mjs"
+        description: "Tailwind CSS configuration"
+
+# Optional but recommended files
+recommended_files:
+  - path: "LICENSE"
+    description: "Project license"
+    
+  - path: "CHANGELOG.md"
+    description: "Change log for releases"
+    
+  - path: ".claude/"
+    description: "Claude configuration directory"
+    type: "directory"
+    
+  - path: "docs/"
+    description: "Additional documentation"
+    type: "directory"
+    
+  - path: "tests/"
+    description: "Test files"
+    type: "directory"
+
+# Quality standards
+quality_requirements:
+  git:
+    branch_naming: "YYYYMMDD-HHMMSS-type-description"
+    commit_messages: "Descriptive and follows conventional commits"
+    
+  documentation:
+    readme_sections:
+      - "Project description"
+      - "Installation instructions" 
+      - "Usage examples"
+      - "Contributing guidelines"
+      
+    agents_md_sections:
+      - "Project overview"
+      - "Key files and structure"
+      - "Development workflow" 
+      - "Build and deployment"
+      - "Common tasks"
+      
+  code_quality:
+    python:
+      - "MANDATORY: Use UV for all Python operations (uv pip install, uv run)"
+      - "MANDATORY: Use system python3 only (no pyenv/conda/custom Python)"
+      - "MANDATORY: Use pyproject.toml for configuration (no requirements.txt)"
+      - "Use UV virtual environments (uv venv .venv)" 
+      - "Prefix all command execution with 'uv run'"
+      - "Follow PEP 8 style guidelines"
+      - "Include type hints where appropriate"
+      
+    nodejs:
+      - "Use package.json for dependencies"
+      - "Follow ESLint configuration"
+      - "Include TypeScript definitions"
+
+# Integration requirements  
+integrations:
+  mcp_servers:
+    description: "MCP server integration for AI assistants"
+    required_for:
+      - "AI assistant projects"
+      - "Development tools"
+      - "Research projects"
+    configuration:
+      - path: ".claude/config.json"
+        description: "Claude MCP configuration"
+        
+  spec_kit:
+    description: "spec-kit integration (Phase 002)"
+    required_for:
+      - "All projects (Phase 002+)"
+    configuration:
+      - path: "AGENTS.md"
+        description: "Agent instructions following spec-kit standards"
+
+# Validation rules
+validation:
+  file_exists:
+    - "Check that required files exist"
+    - "Verify file contents match templates where applicable"
+    
+  structure_compliance:
+    - "Directory structure follows project type requirements"
+    - "File naming follows conventions"
+    
+  content_quality:
+    - "README.md has meaningful content"
+    - "AGENTS.md follows template structure"
+    - "Configuration files are valid"
+    
+  git_compliance:
+    - "Repository has proper .gitignore"
+    - "Branch naming follows conventions"
+    - "Commit history is clean and descriptive"

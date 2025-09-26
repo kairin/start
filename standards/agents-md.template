@@ -1,0 +1,76 @@
+# AGENTS.md Template
+
+This template defines the required structure for AGENTS.md files in all projects.
+
+## Required Sections
+
+### Project Description
+Brief description of what this project does and its main purpose.
+
+### Agent Instructions
+Specific instructions for AI agents working with this project, including:
+- Key files and their purposes
+- Build and deployment processes
+- Testing procedures
+- Common tasks and workflows
+
+### Dependencies and Prerequisites
+- Required software and versions
+- Environment setup requirements
+- Authentication requirements
+
+### Development Workflow
+- Branch naming conventions (YYYYMMDD-HHMMSS-type-description)
+- Commit message standards
+- Testing and validation procedures
+
+### Integration Points
+- MCP server configurations (if applicable)
+- External service dependencies
+- Cross-project dependencies
+
+### Troubleshooting
+Common issues and their solutions specific to this project.
+
+## Example AGENTS.md Structure
+
+```markdown
+# Project Name - Agent Instructions
+
+## Project Overview
+Brief description of the project and its main functionality.
+
+## Key Files and Structure
+- `src/` - Main source code
+- `tests/` - Test files
+- `docs/` - Documentation
+- `.claude/` - Claude configuration
+- `package.json` or `pyproject.toml` - Dependencies
+
+## Development Workflow
+1. Create feature branch: `YYYYMMDD-HHMMSS-feat-description`
+2. Make changes following project standards
+3. Run tests: `npm test` or `pytest`
+4. Commit with descriptive message
+5. Push and create pull request
+
+## Build and Deployment
+- Build command: [specific to project]
+- Test command: [specific to project]  
+- Deploy command: [specific to project]
+
+## MCP Integration
+[If applicable - describe MCP server setup and usage]
+
+## Common Tasks
+List of common development tasks with commands.
+
+## Troubleshooting
+Known issues and solutions.
+```
+
+## Validation Rules
+- File must exist in project root
+- Must contain all required sections
+- Must follow the specified format
+- Content must be project-specific (no generic placeholders)

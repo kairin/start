@@ -1,0 +1,224 @@
+# UV-First Python Requirements
+# All Python projects MUST use UV for dependency and virtual environment management
+
+uv_requirements:
+  mandatory: true
+  description: "All Python projects must use UV instead of pip/venv/conda"
+  
+  system_python:
+    version: "system python3"
+    description: "Use system-installed Python3, never install custom Python versions"
+    forbidden_tools:
+      - "pyenv"
+      - "conda"  
+      - "asdf python"
+      - "custom Python installations"
+    
+  dependency_management:
+    tool: "uv"
+    forbidden_tools:
+      - "pip install" 
+      - "pip3 install"
+      - "python -m pip"
+      - "python3 -m pip"
+    
+    required_commands:
+      install: "uv pip install"
+      install_dev: "uv pip install -e ."
+      install_requirements: "uv pip install -r requirements.txt"
+      
+  virtual_environment:
+    tool: "uv venv"
+    forbidden_tools:
+      - "python -m venv"
+      - "python3 -m venv" 
+      - "virtualenv"
+      - "conda create"
+    
+    required_commands:
+      create: "uv venv .venv"
+      activate: "source .venv/bin/activate"
+      
+  execution:
+    prefix_required: "uv run"
+    examples:
+      - "uv run python script.py"
+      - "uv run pytest"
+      - "uv run mypy"
+      - "uv run black ."
+    
+    forbidden_direct_execution:
+      - "python script.py"
+      - "pytest"
+      - "mypy"
+      - "black ."
+
+# Project structure requirements for UV
+required_files:
+  - path: "pyproject.toml"
+    description: "Modern Python project configuration (REQUIRED)"
+    required: true
+    
+  - path: "uv.lock"
+    description: "UV lockfile for reproducible dependencies"
+    generated: true
+    
+  - path: ".venv/"
+    description: "UV-managed virtual environment"
+    type: "directory"
+    generated: true
+    in_gitignore: true
+
+# Forbidden files (legacy Python dependency management)
+forbidden_files:
+  - path: "requirements.txt"
+    reason: "Use pyproject.toml with UV instead"
+    alternative: "pyproject.toml [dependencies] section"
+    
+  - path: "setup.py"
+    reason: "Legacy packaging, use pyproject.toml"
+    alternative: "pyproject.toml [build-system]"
+    
+  - path: "setup.cfg"
+    reason: "Legacy configuration, use pyproject.toml"
+    alternative: "pyproject.toml [tool.*] sections"
+    
+  - path: "Pipfile"
+    reason: "Pipenv not compatible with UV-first approach"
+    alternative: "pyproject.toml with UV"
+
+# pyproject.toml template requirements
+pyproject_toml_requirements:
+  build_system:
+    requires: ["setuptools", "wheel"]
+    build_backend: "setuptools.build_meta"
+    
+  project_section:
+    required_fields:
+      - "name"
+      - "version"  
+      - "description"
+      - "dependencies"
+    
+    uv_specific:
+      tool_uv:
+        dev_dependencies: "Use [tool.uv] for dev dependencies"
+        
+# Commands that must be prefixed with 'uv run'
+uv_run_required:
+  testing:
+    - "pytest"
+    - "python -m pytest" 
+    
+  linting:
+    - "black"
+    - "flake8"
+    - "mypy"
+    - "ruff"
+    
+  scripts:
+    - "python script.py"
+    - "python -m module"
+    
+  cli_tools:
+    - "jupyter"
+    - "streamlit"
+    - "fastapi"
+
+# UV installation verification
+uv_installation:
+  check_command: "uv --version"
+  install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+  
+# AGENTS.md requirements for UV projects
+agents_md_uv_sections:
+  required_sections:
+    - section: "UV-First Development Requirements"
+      content: |
+        > **⚠️ MANDATORY**: This project is **UV-ONLY**. Using standard `pip` commands will cause failures.
+        
+        **ALL Python package operations MUST use UV:**
+        ```bash
+        # ✅ CORRECT - Always use uv
+        uv pip install package-name
+        uv run python script.py
+        uv run command-name
+        
+        # ❌ WRONG - Never use pip directly
+        pip install package-name        # Will cause import errors
+        python script.py               # Will cause module errors
+        command-name                   # Will cause command not found
+        ```
+        
+    - section: "Environment Setup"
+      content: |
+        ```bash
+        # Create UV virtual environment
+        uv venv .venv
+        
+        # Activate environment
+        source .venv/bin/activate
+        
+        # Install project dependencies
+        uv pip install -e .
+        
+        # Install additional packages
+        uv pip install package-name
+        ```
+        
+    - section: "Common Commands"
+      content: |
+        ```bash
+        # Run scripts
+        uv run python script.py
+        
+        # Run tests
+        uv run pytest
+        
+        # Run linting
+        uv run black .
+        uv run mypy .
+        ```
+
+# Validation rules for UV compliance
+validation_rules:
+  check_uv_installed:
+    command: "uv --version"
+    error_message: "UV not installed. Install with: curl -LsSf https://astral.sh/uv/install.sh | sh"
+    
+  check_pyproject_exists:
+    file: "pyproject.toml"
+    error_message: "pyproject.toml required for UV projects"
+    
+  check_no_legacy_files:
+    forbidden_files: ["requirements.txt", "setup.py", "setup.cfg", "Pipfile"]
+    error_message: "Legacy Python files found. UV projects must use pyproject.toml only"
+    
+  check_venv_in_gitignore:
+    file: ".gitignore" 
+    must_contain: [".venv/", "*.egg-info/"]
+    error_message: ".gitignore must exclude .venv/ and *.egg-info/"
+    
+  check_agents_md_uv_section:
+    file: "AGENTS.md"
+    must_contain: ["UV-ONLY", "uv pip install", "uv run"]
+    error_message: "AGENTS.md must include UV-first requirements section"
+
+# Integration with existing projects
+migration_guide:
+  from_pip_requirements:
+    steps:
+      - "Create pyproject.toml with dependencies from requirements.txt"
+      - "Remove requirements.txt"
+      - "Create UV virtual environment: uv venv .venv"
+      - "Install dependencies: uv pip install -e ."
+      - "Update all scripts to use 'uv run' prefix"
+      - "Update AGENTS.md with UV requirements"
+      
+  from_pipenv:
+    steps:
+      - "Convert Pipfile to pyproject.toml dependencies"
+      - "Remove Pipfile and Pipfile.lock"
+      - "Create UV virtual environment: uv venv .venv" 
+      - "Install dependencies: uv pip install -e ."
+      - "Update scripts and documentation"
