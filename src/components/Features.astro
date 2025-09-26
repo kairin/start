@@ -1,0 +1,96 @@
+---
+// Features section component
+---
+
+<section id="features" class="py-24 bg-slate-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-4">
+        Phase 001 Features
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Complete project quality controller with zero-cost deployment and local CI/CD workflows
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+      <!-- UV-First Python -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-blue-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">🐍</div>
+        <h3 class="text-xl font-semibold text-white mb-3">UV-First Python</h3>
+        <p class="text-gray-300 mb-4">
+          Mandatory UV-only development for all Python projects. No pip, venv, or conda allowed.
+        </p>
+        <div class="text-sm text-blue-300 font-mono">
+          uv pip install package<br>
+          uv run python script.py
+        </div>
+      </div>
+      
+      <!-- Quality Controller -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-green-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">✅</div>
+        <h3 class="text-xl font-semibold text-white mb-3">Quality Controller</h3>
+        <p class="text-gray-300 mb-4">
+          Complete CLI system for auditing project compliance and enforcing standards.
+        </p>
+        <div class="text-sm text-green-300 font-mono">
+          python3 cli/start.py audit<br>
+          --project /path/to/project
+        </div>
+      </div>
+      
+      <!-- System Management -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-purple-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">🛠️</div>
+        <h3 class="text-xl font-semibold text-white mb-3">System Management</h3>
+        <p class="text-gray-300 mb-4">
+          Enhanced development tools updater for NVM, Oh My Zsh, and project monitoring.
+        </p>
+        <div class="text-sm text-purple-300 font-mono">
+          python3 cli/start.py<br>
+          system update
+        </div>
+      </div>
+      
+      <!-- Git Workflow -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-yellow-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">🌿</div>
+        <h3 class="text-xl font-semibold text-white mb-3">Git Standards</h3>
+        <p class="text-gray-300 mb-4">
+          Mandatory branch naming with complete history preservation. No branch deletion allowed.
+        </p>
+        <div class="text-sm text-yellow-300 font-mono">
+          YYYYMMDD-HHMMSS<br>
+          -type-description
+        </div>
+      </div>
+      
+      <!-- Multi-AI Integration -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-indigo-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">🤖</div>
+        <h3 class="text-xl font-semibold text-white mb-3">AI Integration</h3>
+        <p class="text-gray-300 mb-4">
+          Unified AGENTS.md instructions for Claude Code, Gemini CLI, and Copilot CLI.
+        </p>
+        <div class="text-sm text-indigo-300 font-mono">
+          CLAUDE.md → AGENTS.md<br>
+          GEMINI.md → AGENTS.md
+        </div>
+      </div>
+      
+      <!-- Zero-Cost Deployment -->
+      <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl border border-slate-600 hover:border-pink-500/50 transition-all duration-300">
+        <div class="text-3xl mb-4">💰</div>
+        <h3 class="text-xl font-semibold text-white mb-3">Zero-Cost Deployment</h3>
+        <p class="text-gray-300 mb-4">
+          Local CI/CD with GitHub Pages. No GitHub Actions charges - ever.
+        </p>
+        <div class="text-sm text-pink-300 font-mono">
+          npm run build<br>
+          git push origin main
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

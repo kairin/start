@@ -1,18 +1,63 @@
 {
-  "name": "my-first-git-repo",
-  "version": "1.0.0",
-  "description": "Hello there! This guide is your first step into the exciting world of software development. We'll set up a professional development environment on your computer, just like the pros use!",
+  "name": "start-project-quality-controller",
+  "version": "2.0.0",
+  "description": "Project Quality Controller - A unified system for managing project quality, standards, and development environment consistency",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "directories": {
+    "docs": "docs",
+    "test": "tests"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "clean-docs": "rm -rf ./docs/* || true",
+    "prebuild": "npm run clean-docs",
+    "build": "astro check && astro build",
+    "postbuild": "cp public/favicon.* docs/ 2>/dev/null || true",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "sync": "astro sync",
+    "local-ci": "bash scripts/local-ci.sh",
+    "deploy": "npm run build && git add docs/ && echo 'Build completed - ready for commit'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kairin/start.git"
+  },
+  "keywords": [
+    "project-quality-controller",
+    "development-standards",
+    "uv-python",
+    "quality-assurance",
+    "project-management",
+    "ai-assistants",
+    "development-tools"
+  ],
+  "author": "Mister K <678459+kairin@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kairin/start/issues"
+  },
+  "homepage": "https://kairin.github.io/start",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.3",
-    "@modelcontextprotocol/server-filesystem": "^2025.7.29",
-    "@upstash/context7-mcp": "^1.0.14"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/react": "^4.0.10",
+    "astro": "^5.13.9",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2",
+    "lucide-react": "^0.544.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
