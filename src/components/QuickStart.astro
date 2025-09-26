@@ -1,0 +1,132 @@
+---
+// Quick Start section component
+---
+
+<section id="quick-start" class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-4">
+        Quick Start
+      </h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Get started with the Start Project Quality Controller in minutes
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Commands -->
+      <div class="space-y-6">
+        <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <span class="text-2xl mr-3">⚡</span>
+            System Status & Updates
+          </h3>
+          <div class="bg-slate-900 rounded-md p-4 font-mono text-sm">
+            <div class="text-gray-400 mb-2"># Check overall system status</div>
+            <div class="text-green-400">python3 cli/start.py status</div>
+            
+            <div class="text-gray-400 mb-2 mt-4"># Update development tools</div>
+            <div class="text-blue-400">python3 cli/start.py system update</div>
+            
+            <div class="text-gray-400 mb-2 mt-4"># Monitor project repositories</div>
+            <div class="text-purple-400">python3 cli/start.py system projects</div>
+          </div>
+        </div>
+        
+        <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            Quality Control
+          </h3>
+          <div class="bg-slate-900 rounded-md p-4 font-mono text-sm">
+            <div class="text-gray-400 mb-2"># Audit project quality</div>
+            <div class="text-yellow-400">python3 cli/start.py audit \<br>  --project /home/kkk/Apps/my-project</div>
+            
+            <div class="text-gray-400 mb-2 mt-4"># List available templates</div>
+            <div class="text-indigo-400">python3 cli/start.py templates list</div>
+          </div>
+        </div>
+        
+        <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+          <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+            <span class="text-2xl mr-3">🌿</span>
+            Git Workflow
+          </h3>
+          <div class="bg-slate-900 rounded-md p-4 font-mono text-sm">
+            <div class="text-gray-400 mb-2"># Create properly named branch</div>
+            <div class="text-green-400">BRANCH="$(date +%Y%m%d-%H%M%S)-feat-name"</div>
+            <div class="text-green-400">git checkout -b $BRANCH</div>
+            
+            <div class="text-gray-400 mb-2 mt-4"># Complete workflow</div>
+            <div class="text-blue-400">git push -u origin $BRANCH</div>
+            <div class="text-pink-400">gh pr create --title "feat: description"</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Features List -->
+      <div class="space-y-6">
+        <div class="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg p-6 border border-blue-500/30">
+          <h3 class="text-xl font-semibold text-white mb-4">Phase 001 Complete ✅</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>UV-First Python:</strong> Mandatory compliance for all Python projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>Quality Controller:</strong> Complete CLI system with validation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>System Management:</strong> Enhanced dev tools updater</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>Git Standards:</strong> Branch naming and preservation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>AI Integration:</strong> Unified AGENTS.md for all assistants</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-500/30">
+          <h3 class="text-xl font-semibold text-white mb-4">Phase 002 Planned 🚀</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <span class="text-purple-400 mr-3">⏳</span>
+              <span><strong>spec-kit Integration:</strong> Enhanced automation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-400 mr-3">⏳</span>
+              <span><strong>Project Bootstrapping:</strong> Automated creation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-400 mr-3">⏳</span>
+              <span><strong>Cross-Project Sync:</strong> Standards enforcement</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-400 mr-3">⏳</span>
+              <span><strong>Advanced Validation:</strong> Complete lifecycle</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-lg p-6 border border-green-500/30">
+          <h3 class="text-xl font-semibold text-white mb-4">Zero-Cost Deployment 💰</h3>
+          <p class="text-gray-300 mb-4">
+            This site is deployed using <strong>local CI/CD</strong> with GitHub Pages - no GitHub Actions charges ever.
+          </p>
+          <div class="bg-slate-900 rounded-md p-3 font-mono text-sm">
+            <div class="text-gray-400 mb-1"># Build and deploy</div>
+            <div class="text-green-400">npm run build</div>
+            <div class="text-blue-400">git add docs/ && git commit</div>
+            <div class="text-purple-400">git push origin main</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
